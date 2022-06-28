@@ -1,0 +1,129 @@
+import 'package:flutter/material.dart';
+import 'package:plants_store/constants.dart';
+
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({
+    Key? key,
+    required this.onItemSelected,
+  }) : super(key: key);
+
+  final ValueChanged<int> onItemSelected;
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _selectedTab = 0;
+
+  void onSelectedTab(int index) {
+    if (_selectedTab == index) return;
+    setState(() {
+      _selectedTab = index;
+    });
+    widget.onItemSelected(index);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5.0,
+              blurRadius: 7.0,
+              offset: const Offset(0, 0.25),
+            )
+          ]),
+      child: SafeArea(
+        top: false,
+        bottom: true,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _NavigationBarItem(
+              index: 0,
+              image: 'images/icon_plants.png',
+              lable: 'Рослини',
+              isSelected: (_selectedTab == 0),
+              onTap: onSelectedTab,
+            ),
+            _NavigationBarItem(
+              index: 1,
+              image: 'images/icon_favorites.png',
+              lable: 'Улюблені',
+              isSelected: (_selectedTab == 1),
+              onTap: onSelectedTab,
+            ),
+            _NavigationBarItem(
+              index: 2,
+              image: 'images/icon_profile.png',
+              lable: 'Профіль',
+              isSelected: (_selectedTab == 2),
+              onTap: onSelectedTab,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _NavigationBarItem extends StatelessWidget {
+  const _NavigationBarItem({
+    Key? key,
+    required this.index,
+    required this.lable,
+    required this.image,
+    required this.onTap,
+    this.isSelected = false,
+  }) : super(key: key);
+
+  final ValueChanged<int> onTap;
+  final bool isSelected;
+  final int index;
+  final String lable;
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () {
+        onTap(index);
+      },
+      child: SizedBox(
+        height: 74,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image(
+              image: AssetImage(image),
+              color: isSelected
+                  ? AppColor.selectedItemColor
+                  : AppColor.unselectedItemColor,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              lable,
+              style: isSelected
+                  ? TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.selectedItemColor,
+                    )
+                  : TextStyle(
+                      fontSize: 14, color: AppColor.unselectedItemColor),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
