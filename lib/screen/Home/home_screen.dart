@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plants_store/widgets/card_widget.dart';
+import 'package:plants_store/widgets/list_card_widget.dart';
 import 'package:plants_store/widgets/categories.dart';
 import 'package:plants_store/widgets/search_widget.dart';
 
@@ -19,11 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
         children: const [
           SearchWidget(),
           Categories(),
-          CardWidget(),
+          ListCardWidget(),
         ],
       ),
     );
   }
 }
-
-
