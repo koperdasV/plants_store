@@ -100,11 +100,13 @@ class ButtonBuyWidget extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {},
           style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(AppColor.kPrimaryColor),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+            backgroundColor: MaterialStateProperty.all(AppColor.kPrimaryColor),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-              ))),
+              ),
+            ),
+          ),
           child: const Text(
             'В кошик',
             style: TextStyle(

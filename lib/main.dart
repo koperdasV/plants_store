@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/navigation/main_navigation.dart';
-import 'package:plants_store/screen/main_screen_widget.dart';
+import 'package:plants_store/screen/Auth/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const MainScreenWidget(),
+      home: const AuthScreen(),
       routes: mainNavigation.routes,
     );
   }

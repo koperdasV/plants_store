@@ -34,7 +34,7 @@ class SearchWidget extends StatelessWidget {
             hintStyle: const TextStyle(
               color: Color.fromRGBO(33, 129, 0, 0.5),
               fontSize: 18,
-            )),
+            ),),
       ),
     );
   }
