@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/constants.dart';
 
+import '../screen/Details/details_screen.dart';
+
 class ListCardWidget extends StatelessWidget {
   const ListCardWidget({Key? key}) : super(key: key);
 
@@ -28,23 +30,42 @@ class CardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: 178,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.grey,
-                offset: Offset(2.0, 2.0),
-                blurRadius: 20.0,
-              ),
-            ],
-            color: Colors.white,
+        InkWell(
+          splashColor: Colors.grey,
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const DetailScreen(
+                  // fact: catFact.fact,
+                  // image: cats.url,
+                  ),
+            ),
+          ),
+          child: Container(
+            height: 178,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 20.0,
+                ),
+              ],
+              color: Colors.white,
+            ),
           ),
         ),
         const PlantPhoto(),
         const PlantName(),
-        const FavoriteWidget(),
+        Positioned(
+          top: 15,
+          right: 14,
+          child: IconWidget(
+            onPressed: () {},
+            icon: Image.asset('images/icon_favorites.png'),
+          ),
+        ),
         const ButtonBuyWidget(),
         const PriceWidget(),
       ],
@@ -71,7 +92,7 @@ class PriceWidget extends StatelessWidget {
         height: 50,
         child: const Center(
           child: Text(
-            '200',
+            '200₴',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -121,37 +142,36 @@ class ButtonBuyWidget extends StatelessWidget {
   }
 }
 
-class FavoriteWidget extends StatelessWidget {
-  const FavoriteWidget({
-    Key? key,
-  }) : super(key: key);
+class IconWidget extends StatelessWidget {
+  final Function onPressed;
+  final Image icon;
+
+  const IconWidget({Key? key, required this.onPressed, required this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      right: 15,
-      top: 14,
-      child: Container(
-        width: 48,
-        height: 48,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(50),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(1.0, 1.0),
-              blurRadius: 10.0,
-            ),
-          ],
-        ),
-        child: IconButton(
-          splashColor: Colors.grey,
-          onPressed: () {},
-          icon: const Icon(
-            Icons.favorite_border,
-            color: Color.fromRGBO(33, 129, 0, 0.7),
+    return Container(
+      width: 55,
+      height: 55,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(50),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(1.0, 1.0),
+            blurRadius: 10.0,
           ),
+        ],
+      ),
+      child: Center(
+        child: IconButton(
+          padding: const EdgeInsets.only(top: 0),
+          splashColor: Colors.red,
+          onPressed: onPressed(),
+          icon: icon,
+          color: const Color.fromRGBO(33, 129, 0, 0.7),
         ),
       ),
     );

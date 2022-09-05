@@ -1,7 +1,5 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
 
 class RoundedButtonWidget extends StatelessWidget {
   final String image;
