@@ -13,15 +13,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          SearchWidget(),
-          Categories(),
-          ListCardWidget(),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: const [
+        SearchWidget(),
+        Categories(),
+        ListCardWidget(),
+      ],
     );
   }
 }

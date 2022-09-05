@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plants_store/constants.dart';
+import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/screen/Home/home_screen.dart';
 
 import '../widgets/bottom_nav_bar.dart';
@@ -24,7 +24,6 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 25),
@@ -34,8 +33,6 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
             ),
           ),
         ],
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
         title: Padding(
           padding: const EdgeInsets.only(left: 15),
           child: Row(

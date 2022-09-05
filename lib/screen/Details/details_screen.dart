@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plants_store/screen/Details/widgets/image_widget.dart';
 import 'package:plants_store/widgets/list_card_widget.dart';
 
-import '../../constants.dart';
+import '../../resources/colors.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({Key? key}) : super(key: key);

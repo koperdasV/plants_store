@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/navigation/main_navigation.dart';
+import 'package:plants_store/resources/styles.dart';
 import 'package:plants_store/screen/Auth/auth_screen.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const AuthScreen(),
+      theme: buildThemeData(),
       routes: mainNavigation.routes,
     );
   }
