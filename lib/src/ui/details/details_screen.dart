@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/src/ui/details/widgets/image_widget.dart';
-import 'package:plants_store/widgets/list_card_widget.dart';
+import 'package:plants_store/src/ui/home/components.dart';
 
 import '../../../resources/colors.dart';
 

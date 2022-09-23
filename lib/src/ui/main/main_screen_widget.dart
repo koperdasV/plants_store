@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_bloc.dart';
+import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_state.dart';
 import 'package:plants_store/resources/colors.dart';
+import 'package:plants_store/src/ui/auth/auth_screen.dart';
 import 'package:plants_store/src/ui/home/home_screen.dart';
 
 import '../../../widgets/bottom_nav_bar.dart';
@@ -54,18 +58,28 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       ),
       bottomNavigationBar:
           BottomNavBar(onItemSelected: _onNavigationItemSelected),
-      body: ValueListenableBuilder(
-        valueListenable: pageIndex,
-        builder: (context, value, _) {
-          return IndexedStack(
-            index: pageIndex.value,
-            children: const [
-              HomeScreen(),
-              FavoriteScreen(),
-              ProfileScreen(),
-            ],
-          );
+      body: BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is UnAuthenticated) {
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => const AuthScreen()),
+              (route) => false,
+            );
+          }
         },
+        child: ValueListenableBuilder(
+          valueListenable: pageIndex,
+          builder: (context, value, _) {
+            return IndexedStack(
+              index: pageIndex.value,
+              children: const [
+                HomeScreen(),
+                FavoriteScreen(),
+                ProfileScreen(),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

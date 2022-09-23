@@ -1,22 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:plants_store/navigation/main_navigation.dart';
-import 'package:plants_store/resources/styles.dart';
-import 'package:plants_store/src/ui/login/auth_screen.dart';
+import 'package:plants_store/core_app.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  static final mainNavigation = MainNavigation();
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const AuthScreen(),
-      theme: buildThemeData(),
-      routes: mainNavigation.routes,
-    );
-  }
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const CoreApp());
 }
