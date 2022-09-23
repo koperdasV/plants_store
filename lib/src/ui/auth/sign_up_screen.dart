@@ -13,7 +13,6 @@ class SignUpScreen extends StatelessWidget {
 
     return Scaffold(
       body: Column(
-        //mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: 70),
           const LogoWidget(),

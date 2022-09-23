@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_bloc.dart';
+import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_event.dart';
+import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_state.dart';
+import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/src/ui/auth/sign_up_screen.dart';
 import 'package:plants_store/src/ui/main/main_screen_widget.dart';
 
@@ -15,75 +20,106 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const LogoWidget(),
-          const TextFieldWidget(
-            keyboardType: TextInputType.phone,
-            hintText: 'Введіть Ваш номер телефону',
-          ),
-          const SizedBox(height: 20),
-          const TextFieldWidget(
-            keyboardType: TextInputType.text,
-            hintText: 'Введіть Ваш пароль',
-            obscureText: true,
-          ),
-          const SizedBox(height: 26),
-          ButtonWidget(
-            size: size,
-            child: const Text('Увійти'),
-            onPressed: () {
-              Navigator.pushReplacement(
+      body: BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is Authenticated) {
+            Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: ((context) => const MainScreenWidget()),
+                    builder: ((context) => const MainScreenWidget())));
+          }
+          if (state is AuthError) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.error)));
+          }
+        },
+        child: BlocBuilder<AuthBloc, AuthState>(
+          builder: (context, state) {
+            if (state is Loading) {
+              return Center(
+                child: CircularProgressIndicator(
+                  color: AppColor.kPrimaryColor,
                 ),
               );
-            },
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButtonWidget(
-                text: 'Зареєструватись',
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => const SignUpScreen()),
+            }
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const LogoWidget(),
+                const TextFieldWidget(
+                  keyboardType: TextInputType.phone,
+                  hintText: 'Введіть Ваш номер телефону',
+                ),
+                const SizedBox(height: 20),
+                const TextFieldWidget(
+                  keyboardType: TextInputType.text,
+                  hintText: 'Введіть Ваш пароль',
+                  obscureText: true,
+                ),
+                const SizedBox(height: 26),
+                ButtonWidget(
+                  size: size,
+                  child: const Text('Увійти'),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const MainScreenWidget()),
+                      ),
+                    );
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButtonWidget(
+                      text: 'Зареєструватись',
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => const SignUpScreen()),
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
-              const TextButtonWidget(
-                text: 'Забули пароль?',
-              ),
-            ],
-          ),
-          const SizedBox(height: 60),
-          const Text(
-            'Увійти через',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RoundedButtonWidget(
-                image: 'images/facebook.png',
-                onPressed: () {},
-              ),
-              RoundedButtonWidget(
-                image: 'images/google.png',
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ],
+                    const TextButtonWidget(
+                      text: 'Забули пароль?',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 60),
+                const Text(
+                  'Увійти через',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RoundedButtonWidget(
+                      image: 'images/facebook.png',
+                      onPressed: () {},
+                    ),
+                    RoundedButtonWidget(
+                      image: 'images/google.png',
+                      onPressed: () {
+                        _authenticateWithGoogle(context);
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
+  }
+
+  void _authenticateWithGoogle(context) {
+    BlocProvider.of<AuthBloc>(context).add(GoogleSignInRequested());
   }
 }
