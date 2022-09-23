@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_bloc.dart';
-import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_event.dart';
-import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_state.dart';
+import 'package:plants_store/core/blocs/auth_bloc/auth_bloc.dart';
+import 'package:plants_store/core/blocs/auth_bloc/auth_event.dart';
+import 'package:plants_store/core/blocs/auth_bloc/auth_state.dart';
 import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/src/ui/auth/sign_up_screen.dart';
 import 'package:plants_store/src/ui/main/main_screen_widget.dart';

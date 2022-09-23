@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_event.dart';
-import 'package:plants_store/core/blocs/auth_bloc/bloc/auth_state.dart';
-import 'package:plants_store/core/blocs/auth_bloc/bloc/repository/auth/auth_repository.dart';
+import 'package:plants_store/core/blocs/auth_bloc/auth_event.dart';
+import 'package:plants_store/core/blocs/auth_bloc/auth_state.dart';
+import 'package:plants_store/core/repository/auth/auth_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
