@@ -27,6 +27,7 @@ class AuthScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: ((context) => const MainScreenWidget())));
+            BlocProvider.of<AuthBloc>(context).add(SendUserDataToDB());
           }
           if (state is AuthError) {
             ScaffoldMessenger.of(context)

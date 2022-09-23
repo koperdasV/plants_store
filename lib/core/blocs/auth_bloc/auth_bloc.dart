@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plants_store/core/blocs/auth_bloc/auth_event.dart';
@@ -13,6 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }) : super(UnAuthenticated()) {
     on<GoogleSignInRequested>(_googleSignIn);
     on<SignOutRequested>(_signOut);
+    on<SendUserDataToDB>(_sendUserDataToDB);
   }
   // When User Presses the Google Login Button, we will send the GoogleSignInRequest Event to the AuthBloc to handle it and emit the Authenticated State if the user is authenticated
   Future<void> _googleSignIn(
@@ -32,5 +35,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(Loading());
     await authRepository.signOut();
     emit(UnAuthenticated());
+  }
+
+  Future<void> _sendUserDataToDB(
+      SendUserDataToDB event, Emitter<AuthState> emit) async {
+    emit(Loading());
+    try {
+      await authRepository.sendUserDataToDB();
+      emit(Authenticated());
+    } catch (e) {
+      emit(AuthError(error: e.toString()));
+    }
   }
 }

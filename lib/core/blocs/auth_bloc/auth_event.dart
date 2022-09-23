@@ -9,9 +9,9 @@ abstract class AuthEvent extends Equatable {
 }
 
 // When the user signing in with google this event is called and the [AuthRepository] is called to sign in the user
-class GoogleSignInRequested extends AuthEvent{}
+class GoogleSignInRequested extends AuthEvent {}
 
 // When the user signing out this event is called and the [AuthRepository] is called to sign out the user
-class SignOutRequested extends AuthEvent{}
+class SignOutRequested extends AuthEvent {}
 
-
+class SendUserDataToDB extends AuthEvent {}

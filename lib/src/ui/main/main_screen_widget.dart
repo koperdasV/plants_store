@@ -23,7 +23,6 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   void _onNavigationItemSelected(index) {
     pageIndex.value = index;
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,10 +71,14 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
           builder: (context, value, _) {
             return IndexedStack(
               index: pageIndex.value,
-              children: const [
-                HomeScreen(),
-                FavoriteScreen(),
-                ProfileScreen(),
+              children: [
+                const HomeScreen(),
+                const FavoriteScreen(),
+                BlocBuilder<AuthBloc, AuthState>(
+                  builder: (context, state) {
+                    return const ProfileScreen();
+                  },
+                ),
               ],
             );
           },
