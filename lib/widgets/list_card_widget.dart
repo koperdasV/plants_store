@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
 
-import '../screen/Details/details_screen.dart';
+import '../src/ui/details/details_screen.dart';
 
 class ListCardWidget extends StatelessWidget {
   const ListCardWidget({Key? key}) : super(key: key);

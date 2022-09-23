@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/navigation/main_navigation.dart';
 import 'package:plants_store/resources/styles.dart';
-import 'package:plants_store/screen/Auth/auth_screen.dart';
+import 'package:plants_store/src/ui/auth/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());

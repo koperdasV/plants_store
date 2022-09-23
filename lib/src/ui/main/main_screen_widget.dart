@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
-import 'package:plants_store/screen/Home/home_screen.dart';
+import 'package:plants_store/src/ui/home/home_screen.dart';
 
-import '../widgets/bottom_nav_bar.dart';
-import 'Favorite/favorite_screen.dart';
-import 'Profile/profile_screen.dart';
+import '../../../widgets/bottom_nav_bar.dart';
+import '../favorite/favorite_screen.dart';
+import '../profile/profile_screen.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({Key? key}) : super(key: key);

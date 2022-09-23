@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
-import 'package:plants_store/screen/main_screen_widget.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
     Key? key,
     required this.size,
-    this.child,
+    this.child, required this.onPressed,
   }) : super(key: key);
-  
+
   final Widget? child;
   final Size size;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +28,7 @@ class ButtonWidget extends StatelessWidget {
               ),
             ),
           ),
-          onPressed: () {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: ((context) => const MainScreenWidget())));
-          },
+          onPressed: onPressed,
           child: child,
         ),
       ),
