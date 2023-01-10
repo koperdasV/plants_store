@@ -18,10 +18,7 @@ class CardWidget extends StatelessWidget {
           onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const DetailScreen(
-                  // fact: catFact.fact,
-                  // image: cats.url,
-                  ),
+              builder: (context) => const DetailScreen(),
             ),
           ),
           child: Container(
@@ -42,31 +39,21 @@ class CardWidget extends StatelessWidget {
         ),
         const PlantPhoto(),
         const PlantName(),
-        const FavoriteWidget(),
-        const ButtonBuyWidget(),
+        Positioned(
+          top: 15,
+          right: 14,
+          child: IconWidget(
+            onPressed: () {},
+            icon: 'images/favorites.png',
+          ),
+        ),
+        const Positioned(
+          right: 15,
+          bottom: 15,
+          child: ButtonBuyWidget(),
+        ),
         const PriceWidget(),
       ],
-    );
-  }
-}
-
-class FavoriteWidget extends StatelessWidget {
-  const FavoriteWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: 15,
-      right: 14,
-      child: IconWidget(
-        onPressed: () {},
-        icon: Image.asset(
-          'images/icon_favorites.png',
-          color: Colors.green,
-        ),
-      ),
     );
   }
 }

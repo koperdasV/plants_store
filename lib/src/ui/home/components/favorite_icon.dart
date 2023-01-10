@@ -1,37 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:plants_store/resources/colors.dart';
 
 class IconWidget extends StatelessWidget {
   final Function onPressed;
-  final Image icon;
+  final String icon;
 
-  const IconWidget({Key? key, required this.onPressed, required this.icon})
-      : super(key: key);
+  const IconWidget({
+    Key? key,
+    required this.onPressed,
+    required this.icon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(50),
-        boxShadow: [
-          BoxShadow(
-            color: AppColor.shadowColor,
-            offset: const Offset(0.0, 1.0),
-            blurRadius: 4.0,
-            spreadRadius: 1,
-          ),
-        ],
+    return ElevatedButton(
+      onPressed: () {},
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(5)),
+        shape: MaterialStateProperty.all(
+          const CircleBorder(),
+        ),
       ),
-      child: Center(
-        child: IconButton(
-          padding: const EdgeInsets.only(top: 0),
-          splashColor: Colors.red,
-          onPressed: onPressed(),
-          icon: icon,
-          color: const Color.fromRGBO(33, 129, 0, 0.7),
+      child: IconButton(
+        onPressed: onPressed(),
+        icon: Image.asset(
+          icon,
+          width: 50,
+          height: 50,
+          fit: BoxFit.cover,
         ),
       ),
     );
