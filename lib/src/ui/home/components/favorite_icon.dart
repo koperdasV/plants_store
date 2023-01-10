@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plants_store/resources/colors.dart';
 
 class IconWidget extends StatelessWidget {
   final Function onPressed;
@@ -10,16 +11,17 @@ class IconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 55,
-      height: 55,
+      width: 50,
+      height: 50,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(50),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Colors.grey,
-            offset: Offset(1.0, 1.0),
-            blurRadius: 10.0,
+            color: AppColor.shadowColor,
+            offset: const Offset(0.0, 1.0),
+            blurRadius: 4.0,
+            spreadRadius: 1,
           ),
         ],
       ),

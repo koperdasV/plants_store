@@ -13,41 +13,49 @@ class TabBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size.width / 1.25,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color.fromRGBO(75, 75, 75, 1),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: AppColor.shadowColor,
+              spreadRadius: 1.0,
+              blurRadius: 4.0,
+              offset: const Offset(0, 4),
+            )
+          ],
         ),
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: Column(
-        children: [
-          TabBar(
-            unselectedLabelColor: Colors.white,
-            labelColor: Colors.white,
-            indicatorWeight: 3,
-            indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: AppColor.kPrimaryColor,
+        child: Column(
+          children: [
+            TabBar(
+              unselectedLabelColor: AppColor.unselectedItemColor,
+              labelColor: Colors.white,
+              indicatorWeight: 1,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                gradient: AppColor.kPrimaryGradient,
+              ),
+              labelStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              controller: tabController,
+              tabs: const [
+                Tab(
+                  text: 'Всі',
+                ),
+                Tab(
+                  text: 'Хвойні',
+                ),
+                Tab(
+                  text: 'Декоративні',
+                ),
+              ],
             ),
-            labelStyle: const TextStyle(
-              fontWeight: FontWeight.w400,
-            ),
-            controller: tabController,
-            tabs: const [
-              Tab(
-                text: 'Всі',
-              ),
-              Tab(
-                text: 'Хвойні',
-              ),
-              Tab(
-                text: 'Декоративні',
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -15,7 +15,7 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 5),
       child: TextField(
         keyboardType: keyboardType,
         obscureText: obscureText,
@@ -29,7 +29,7 @@ class TextFieldWidget extends StatelessWidget {
           ),
           hintText: hintText,
           hintStyle: const TextStyle(
-            color: Color.fromRGBO(33, 129, 0, 0.5),
+            color: Color.fromRGBO(49, 125, 69, 0.5),
             fontSize: 18,
           ),
         ),

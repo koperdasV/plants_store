@@ -29,10 +29,8 @@ class _TabBarPageState extends State<TabBarPage>
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      //height: MediaQuery.of(context).size.height,
       child: Column(
         children: [
-          //const SizedBox(height: 0),
           TabBarWidget(
             size: size,
             tabController: tabController,

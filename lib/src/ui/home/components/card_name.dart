@@ -24,7 +24,7 @@ class PlantName extends StatelessWidget {
             child: Text(
               'В наявності',
               style: TextStyle(
-                color: Color.fromRGBO(33, 129, 0, 0.7),
+                color: Color.fromRGBO(49, 125, 69, 0.7),
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),

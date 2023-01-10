@@ -41,6 +41,7 @@ dependencies:
   bloc: ^8.1.0
   cloud_firestore: ^3.4.5
   firebase_core: ^1.21.0
+  sliding_sheet: ^0.5.2
 
 dev_dependencies:
   flutter_test:

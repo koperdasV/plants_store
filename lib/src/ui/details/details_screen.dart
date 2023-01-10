@@ -1,4 +1,149 @@
 import 'package:flutter/material.dart';
+import 'package:plants_store/resources/colors.dart';
+import 'package:plants_store/widgets/gradient_text.dart';
+import 'package:sliding_sheet/sliding_sheet.dart';
+
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 25),
+            child: IconButton(
+              onPressed: () {},
+              icon: Image.asset('images/shopping_cart.png'),
+            ),
+          ),
+        ],
+        title: Padding(
+          padding: const EdgeInsets.only(left: 15),
+          child: Row(
+            children: [
+              Image.asset('images/logo.png'),
+              Padding(
+                padding: const EdgeInsets.only(left: 4, top: 5),
+                child: GradientText(
+                  'PlantShop',
+                  gradient: AppColor.kPrimaryGradient,
+                  style: const TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: SlidingSheet(
+        elevation: 8,
+        cornerRadius: 16,
+        snapSpec: const SnapSpec(
+          // Enable snapping. This is true by default.
+          snap: false,
+          // Set custom snapping points.
+          snappings: [0.2, 0.7, 1.0],
+          // Define to what the snappings relate to. In this case,
+          // the total available space that the sheet can expand to.
+          positioning: SnapPositioning.relativeToAvailableSpace,
+        ),
+        // The body widget will be displayed under the SlidingSheet
+        // and a parallax effect can be applied to it.
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/plant_details_test.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        builder: (context, state) {
+          // This is the content of the sheet that will get
+          // scrolled, if the content is bigger than the available
+          // height of the sheet.
+          return const SizedBox(
+            height: 450,
+            child: Center(
+              child: Text('This is the content of the sheet'),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// class SlidingBottomSheet extends StatelessWidget {
+//   const SlidingBottomSheet({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SlidingSheet(
+//       elevation: 8,
+//       cornerRadius: 16,
+//       snapSpec: const SnapSpec(
+//         snap: false,
+//         snappings: [0.25, 0.7, 1.0],
+//         positioning: SnapPositioning.relativeToAvailableSpace,
+//       ),
+//       body: const Body(),
+//       builder: (context, state) {
+//         return const CardWidget();
+//       },
+//       headerBuilder: (context, state) {
+//         return Container(
+//           height: 56,
+//           width: double.infinity,
+//           color: Colors.white,
+//           child: Row(
+//             children: [
+//               Padding(
+//                 padding: const EdgeInsets.only(left: 20, top: 16),
+//                 child: Image.asset('images/sun.png'),
+//               ),
+//               const Padding(
+//                 padding: EdgeInsets.only(left: 12, top: 16),
+//                 child: Text(
+//                   'Гарячі пропозиції',
+//                   style: TextStyle(
+//                     color: Color(0xFF262841),
+//                     fontSize: 24,
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
+
+// class Body extends StatelessWidget {
+//   const Body({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       decoration: const BoxDecoration(
+//         image: DecorationImage(
+//           image: AssetImage("images/plant_details_test.png"),
+//           fit: BoxFit.cover,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+/*import 'package:flutter/material.dart';
 import 'package:plants_store/src/ui/details/widgets/image_widget.dart';
 import 'package:plants_store/src/ui/home/components.dart';
 
@@ -185,3 +330,4 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
     );
   }
 }
+*/

@@ -12,7 +12,7 @@ class PriceWidget extends StatelessWidget {
       bottom: 0,
       child: Container(
         decoration: BoxDecoration(
-            color: AppColor.kPrimaryColor,
+            gradient: AppColor.kPrimaryGradient,
             borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(10),
                 bottomLeft: Radius.circular(10))),

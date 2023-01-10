@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
+import 'package:plants_store/src/ui/favorite/favorite_screen.dart';
 
 class ButtonBuyWidget extends StatelessWidget {
   const ButtonBuyWidget({
@@ -15,7 +16,12 @@ class ButtonBuyWidget extends StatelessWidget {
         width: 130,
         height: 38,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: ((context) => const FavoriteScreen())));
+          },
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(AppColor.kPrimaryColor),
             shape: MaterialStateProperty.all(
@@ -23,13 +29,25 @@ class ButtonBuyWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+            padding: MaterialStateProperty.all(
+              const EdgeInsets.all(0),
+            ),
           ),
-          child: const Text(
-            'В кошик',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
+          child: Ink(
+            decoration: BoxDecoration(
+              gradient: AppColor.kPrimaryGradient,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'В кошик',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
           ),
         ),

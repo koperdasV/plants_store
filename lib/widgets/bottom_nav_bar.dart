@@ -28,16 +28,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5.0,
-              blurRadius: 7.0,
-              offset: const Offset(0, 0.25),
-            )
-          ]),
+        gradient: AppColor.kPrimaryGradient,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5.0,
+            blurRadius: 7.0,
+            offset: const Offset(0, 0.25),
+          )
+        ],
+      ),
       child: SafeArea(
         top: false,
         bottom: true,
@@ -95,7 +96,17 @@ class _NavigationBarItem extends StatelessWidget {
       onTap: () {
         onTap(index);
       },
-      child: SizedBox(
+      child: Container(
+        decoration: isSelected
+            ? const BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    width: 4,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            : const BoxDecoration(),
         height: 74,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -103,9 +114,7 @@ class _NavigationBarItem extends StatelessWidget {
           children: [
             Image(
               image: AssetImage(image),
-              color: isSelected
-                  ? AppColor.selectedItemColor
-                  : AppColor.unselectedItemColor,
+              color: Colors.white,
             ),
             const SizedBox(
               height: 8,
@@ -113,13 +122,15 @@ class _NavigationBarItem extends StatelessWidget {
             Text(
               lable,
               style: isSelected
-                  ? TextStyle(
-                      fontSize: 14,
+                  ? const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      color: AppColor.selectedItemColor,
                     )
-                  : TextStyle(
-                      fontSize: 14, color: AppColor.unselectedItemColor),
+                  : const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
             ),
           ],
         ),

@@ -5,6 +5,7 @@ import 'package:plants_store/core/blocs/auth_bloc/auth_state.dart';
 import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/src/ui/auth/auth_screen.dart';
 import 'package:plants_store/src/ui/home/home_screen.dart';
+import 'package:plants_store/widgets/gradient_text.dart';
 
 import '../../../widgets/bottom_nav_bar.dart';
 import '../favorite/favorite_screen.dart';
@@ -23,6 +24,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   void _onNavigationItemSelected(index) {
     pageIndex.value = index;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +45,13 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
               Image.asset('images/logo.png'),
               Padding(
                 padding: const EdgeInsets.only(left: 4, top: 5),
-                child: Text(
+                child: GradientText(
                   'PlantShop',
-                  style: TextStyle(
-                      color: AppColor.selectedItemColor,
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700),
+                  gradient: AppColor.kPrimaryGradient,
+                  style: const TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ],
