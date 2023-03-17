@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IconWidget extends StatelessWidget {
-  final Function onPressed;
+  final VoidCallback onPressed;
   final String icon;
 
   const IconWidget({
@@ -12,22 +12,26 @@ class IconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Colors.white),
-        padding: MaterialStateProperty.all(const EdgeInsets.all(5)),
-        shape: MaterialStateProperty.all(
-          const CircleBorder(),
-        ),
-      ),
-      child: IconButton(
-        onPressed: onPressed(),
-        icon: Image.asset(
-          icon,
-          width: 50,
-          height: 50,
-          fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: SizedBox(
+        width: 50,
+        height: 50,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.white),
+            padding: MaterialStateProperty.all(const EdgeInsets.all(5)),
+            shape: MaterialStateProperty.all(
+              const CircleBorder(),
+            ),
+          ),
+          child: Image.asset(
+            icon,
+            width: 30,
+            height: 30,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

@@ -11,18 +11,17 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        InkWell(
-          splashColor: Colors.grey,
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const DetailScreen(),
-            ),
-          ),
-          child: Container(
-            height: 178,
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DetailScreen(),
+        ),
+      ),
+      child: Stack(
+        children: [
+          Container(
+            height: 148,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
@@ -35,25 +34,17 @@ class CardWidget extends StatelessWidget {
               ],
               color: Colors.white,
             ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                PlantPhoto(),
+                PlantName(),
+              ],
+            ),
           ),
-        ),
-        const PlantPhoto(),
-        const PlantName(),
-        Positioned(
-          top: 15,
-          right: 14,
-          child: IconWidget(
-            onPressed: () {},
-            icon: 'images/favorites.png',
-          ),
-        ),
-        const Positioned(
-          right: 15,
-          bottom: 15,
-          child: ButtonBuyWidget(),
-        ),
-        const PriceWidget(),
-      ],
+          const PriceWidget(),
+        ],
+      ),
     );
   }
 }

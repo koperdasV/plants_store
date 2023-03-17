@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/src/ui/home/components.dart';
-import 'package:plants_store/widgets/search_widget.dart';
 
 class ListCardWidget extends StatelessWidget {
   const ListCardWidget({Key? key}) : super(key: key);
@@ -9,7 +8,7 @@ class ListCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SearchWidget(),
+        //const SearchWidget(),
         Expanded(
           child: CustomScrollView(
             slivers: [
@@ -19,7 +18,7 @@ class ListCardWidget extends StatelessWidget {
                   (context, index) {
                     return const Padding(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: CardWidget(),
                     );
                   },

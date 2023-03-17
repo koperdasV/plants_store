@@ -14,7 +14,7 @@ class TabBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
@@ -33,7 +33,6 @@ class TabBarWidget extends StatelessWidget {
             TabBar(
               unselectedLabelColor: AppColor.unselectedItemColor,
               labelColor: Colors.white,
-              indicatorWeight: 1,
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 gradient: AppColor.kPrimaryGradient,
@@ -44,12 +43,15 @@ class TabBarWidget extends StatelessWidget {
               controller: tabController,
               tabs: const [
                 Tab(
+                  height: 28,
                   text: 'Всі',
                 ),
                 Tab(
+                  height: 28,
                   text: 'Хвойні',
                 ),
                 Tab(
+                  height: 28,
                   text: 'Декоративні',
                 ),
               ],

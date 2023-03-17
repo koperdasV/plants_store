@@ -107,7 +107,7 @@ class _NavigationBarItem extends StatelessWidget {
                 ),
               )
             : const BoxDecoration(),
-        height: 74,
+        height: 60,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
@@ -115,20 +115,21 @@ class _NavigationBarItem extends StatelessWidget {
             Image(
               image: AssetImage(image),
               color: Colors.white,
+              height: 26,
             ),
             const SizedBox(
-              height: 8,
+              height: 4,
             ),
             Text(
               lable,
               style: isSelected
                   ? const TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     )
                   : const TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
                       color: Colors.white,
                     ),
             ),

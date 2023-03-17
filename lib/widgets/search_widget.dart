@@ -8,10 +8,10 @@ class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      child: TextField(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      child: TextFormField(
         keyboardType: TextInputType.text,
-        style: const TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 16),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(vertical: 8),
           //isCollapsed: true,
@@ -33,7 +33,7 @@ class SearchWidget extends StatelessWidget {
           hintText: 'Пошук',
           hintStyle: const TextStyle(
             color: Color.fromRGBO(33, 129, 0, 0.5),
-            fontSize: 18,
+            fontSize: 16,
           ),
         ),
       ),
