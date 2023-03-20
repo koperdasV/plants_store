@@ -4,7 +4,9 @@ import 'package:plants_store/core/blocs/auth_bloc/auth_bloc.dart';
 import 'package:plants_store/core/blocs/auth_bloc/auth_state.dart';
 import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/src/ui/auth/auth_screen.dart';
+import 'package:plants_store/src/ui/basket/basket_page.dart';
 import 'package:plants_store/src/ui/home/home_screen.dart';
+import 'package:plants_store/widgets/gradient_text.dart';
 
 import '../../../widgets/bottom_nav_bar.dart';
 import '../favorite/favorite_screen.dart';
@@ -23,16 +25,57 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   void _onNavigationItemSelected(index) {
     pageIndex.value = index;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BasketPage(),
+                  ));
+            },
+            icon: Icon(
+              Icons.search,
+              color: AppColor.kPrimaryColor,
+              size: 30,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FavoriteScreen(),
+                ),
+              );
+            },
+            icon: Icon(
+              Icons.favorite_outline,
+              color: AppColor.kPrimaryColor,
+              size: 30,
+            ),
+          ),
           Padding(
-            padding: const EdgeInsets.only(right: 25),
+            padding: const EdgeInsets.only(right: 10),
             child: IconButton(
-              onPressed: () {},
-              icon: Image.asset('images/shopping_cart.png'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BasketPage(),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+                color: AppColor.kPrimaryColor,
+                size: 30,
+              ),
             ),
           ),
         ],
@@ -43,12 +86,13 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
               Image.asset('images/logo.png'),
               Padding(
                 padding: const EdgeInsets.only(left: 4, top: 5),
-                child: Text(
+                child: GradientText(
                   'PlantShop',
-                  style: TextStyle(
-                      color: AppColor.selectedItemColor,
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700),
+                  gradient: AppColor.kPrimaryGradient,
+                  style: const TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ],

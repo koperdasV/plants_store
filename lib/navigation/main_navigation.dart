@@ -19,6 +19,6 @@ class MainNavigation {
     MainNavigationRouteName.main: (context) => const MainScreenWidget(),
     MainNavigationRouteName.profile: (context) => const ProfileScreen(),
     MainNavigationRouteName.favorite: (context) => const FavoriteScreen(),
-    MainNavigationRouteName.details: (context) => const DetailScreen(),
+    MainNavigationRouteName.details: (context) =>  DetailScreen(),
   };
 }

@@ -1,35 +1,37 @@
 import 'package:flutter/material.dart';
 
 class IconWidget extends StatelessWidget {
-  final Function onPressed;
-  final Image icon;
+  final VoidCallback onPressed;
+  final String icon;
 
-  const IconWidget({Key? key, required this.onPressed, required this.icon})
-      : super(key: key);
+  const IconWidget({
+    Key? key,
+    required this.onPressed,
+    required this.icon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 55,
-      height: 55,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(50),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            offset: Offset(1.0, 1.0),
-            blurRadius: 10.0,
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: SizedBox(
+        width: 50,
+        height: 50,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.white),
+            padding: MaterialStateProperty.all(const EdgeInsets.all(5)),
+            shape: MaterialStateProperty.all(
+              const CircleBorder(),
+            ),
           ),
-        ],
-      ),
-      child: Center(
-        child: IconButton(
-          padding: const EdgeInsets.only(top: 0),
-          splashColor: Colors.red,
-          onPressed: onPressed(),
-          icon: icon,
-          color: const Color.fromRGBO(33, 129, 0, 0.7),
+          child: Image.asset(
+            icon,
+            width: 30,
+            height: 30,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

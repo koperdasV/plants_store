@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
+import 'package:plants_store/widgets/gradient_text.dart';
 
 class TextButtonWidget extends StatelessWidget {
   final String text;
@@ -14,11 +15,12 @@ class TextButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: Text(
+      child: GradientText(
         text,
-        style: TextStyle(
-          color: AppColor.kPrimaryColor,
+        gradient: AppColor.kPrimaryGradient,
+        style: const TextStyle(
           fontSize: 16,
+          fontWeight: FontWeight.normal,
         ),
       ),
     );

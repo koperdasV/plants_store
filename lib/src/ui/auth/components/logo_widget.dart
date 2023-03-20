@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
+import 'package:plants_store/widgets/gradient_text.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({
@@ -16,12 +17,13 @@ class LogoWidget extends StatelessWidget {
           Image.asset('images/logo.png'),
           Padding(
             padding: const EdgeInsets.only(left: 4, top: 5),
-            child: Text(
+            child: GradientText(
               'PlantShop',
-              style: TextStyle(
-                  color: AppColor.selectedItemColor,
-                  fontSize: 48,
-                  fontWeight: FontWeight.w700),
+              style: const TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.w700,
+              ),
+              gradient: AppColor.kPrimaryGradient,
             ),
           ),
         ],

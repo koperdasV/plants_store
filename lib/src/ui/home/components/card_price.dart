@@ -12,12 +12,12 @@ class PriceWidget extends StatelessWidget {
       bottom: 0,
       child: Container(
         decoration: BoxDecoration(
-            color: AppColor.kPrimaryColor,
+            gradient: AppColor.kPrimaryGradient,
             borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(10),
                 bottomLeft: Radius.circular(10))),
-        width: 66,
-        height: 50,
+        width: 56,
+        height: 40,
         child: const Center(
           child: Text(
             '200₴',

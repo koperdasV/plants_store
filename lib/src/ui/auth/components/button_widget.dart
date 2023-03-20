@@ -5,7 +5,8 @@ class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
     Key? key,
     required this.size,
-    this.child, required this.onPressed,
+    this.child,
+    required this.onPressed,
   }) : super(key: key);
 
   final Widget? child;
@@ -15,21 +16,32 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 50),
       child: SizedBox(
         width: size.width,
         height: 45,
         child: ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(AppColor.kPrimaryColor),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+            padding: MaterialStateProperty.all(
+              const EdgeInsets.all(0),
+            ),
           ),
           onPressed: onPressed,
-          child: child,
+          child: Ink(
+            decoration: BoxDecoration(
+              gradient: AppColor.kPrimaryGradient,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: child,
+            ),
+          ),
         ),
       ),
     );

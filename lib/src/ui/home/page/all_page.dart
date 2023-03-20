@@ -6,10 +6,6 @@ class AllPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        ListCardWidget(),
-      ],
-    );
+    return const ListCardWidget();
   }
 }

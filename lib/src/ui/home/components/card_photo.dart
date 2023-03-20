@@ -10,8 +10,8 @@ class PlantPhoto extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(14.0),
       child: SizedBox(
-        width: 120,
-        height: 150,
+        width: 90,
+        height: 120,
         child: Image.asset(
           'images/plant_test.png',
           fit: BoxFit.contain,

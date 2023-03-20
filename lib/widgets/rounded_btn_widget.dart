@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class RoundedButtonWidget extends StatelessWidget {
   final String image;
   final VoidCallback onPressed;
@@ -14,7 +13,7 @@ class RoundedButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(top: 18,left: 12,right: 12),
+      padding: const EdgeInsets.only(top: 18, left: 12, right: 12),
       child: SizedBox(
         width: size.width / 4,
         height: 45,
@@ -27,12 +26,6 @@ class RoundedButtonWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            // side: MaterialStateProperty.all(
-            //   BorderSide(
-            //     color: AppColor.kPrimaryColor,
-            //     width: 1.5,
-            //   ),
-            // ),
           ),
           onPressed: onPressed,
           child: Image(image: AssetImage(image)),

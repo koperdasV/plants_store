@@ -4,9 +4,14 @@ ThemeData buildThemeData() {
   return ThemeData(
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
       elevation: 0.0,
-      toolbarHeight: 100,
+      backgroundColor: Colors.white,
+      titleTextStyle: TextStyle(
+        color: Colors.black,
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
     ),
   );
 }
