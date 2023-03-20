@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plants_store/resources/colors.dart';
 
 TextStyle get16W500BlackTextStyle() {
   return const TextStyle(
@@ -20,5 +21,13 @@ TextStyle get14W500WhiteTextButton() {
     fontSize: 14,
     color: Colors.white,
     fontWeight: FontWeight.w500,
+  );
+}
+
+TextStyle get16W600PrimaryColorText() {
+  return TextStyle(
+    fontSize: 18,
+    color: AppColor.kPrimaryColor,
+    fontWeight: FontWeight.w600,
   );
 }

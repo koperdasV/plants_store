@@ -64,7 +64,10 @@ class PlantName extends StatelessWidget {
                     ),
                   ),
                 ),
-                const ButtonBuyWidget(),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 15),
+                  child: ButtonBuyWidget(),
+                ),
               ],
             ),
           ],

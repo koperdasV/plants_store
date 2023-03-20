@@ -7,7 +7,7 @@ class ButtonBuyWidget extends StatelessWidget {
   const ButtonBuyWidget({
     Key? key,
     this.width = 130,
-    this.height = 30,
+    this.height = 33,
   }) : super(key: key);
 
   final double? width;
@@ -16,7 +16,7 @@ class ButtonBuyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 15, bottom: 15),
+      padding: const EdgeInsets.only(right: 15, bottom: 0),
       child: SizedBox(
         width: width,
         height: height,

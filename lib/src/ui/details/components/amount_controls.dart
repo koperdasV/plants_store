@@ -9,10 +9,10 @@ class AmountControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Positioned(
-      bottom: 0,
+    return SafeArea(
+      bottom: false,
       child: Container(
+        height: 70,
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -22,15 +22,9 @@ class AmountControls extends StatelessWidget {
             )
           ],
           color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40),
-            topRight: Radius.circular(40),
-          ),
         ),
-        width: size.width,
-        height: size.height / 10,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: const [
@@ -51,7 +45,6 @@ class AmountControls extends StatelessWidget {
             ),
             const ButtonBuyWidget(
               width: 160,
-              height: 43,
             ),
           ],
         ),

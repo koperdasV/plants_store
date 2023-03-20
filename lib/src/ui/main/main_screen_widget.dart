@@ -76,9 +76,6 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                 color: AppColor.kPrimaryColor,
                 size: 30,
               ),
-              // Image.asset(
-              //   'images/shopping_cart.png',
-              // ),
             ),
           ),
         ],
