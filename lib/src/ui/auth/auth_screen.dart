@@ -45,20 +45,11 @@ class AuthScreen extends StatelessWidget {
             return Center(
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const LogoWidget(),
-                    const TextFieldWidget(
-                      keyboardType: TextInputType.phone,
-                      hintText: 'Введіть Ваш номер телефону',
-                    ),
+                    const TextFieldWidget(),
                     const SizedBox(height: 20),
-                    const TextFieldWidget(
-                      keyboardType: TextInputType.text,
-                      hintText: 'Введіть Ваш пароль',
-                      obscureText: true,
-                    ),
-                    const SizedBox(height: 26),
                     ButtonWidget(
                       size: size,
                       child: const Text('Увійти'),
@@ -71,27 +62,7 @@ class AuthScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButtonWidget(
-                          text: 'Зареєструватись',
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: ((context) => const SignUpScreen()),
-                              ),
-                            );
-                          },
-                        ),
-                        TextButtonWidget(
-                          text: 'Забули пароль?',
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 50),
                     const Text(
                       'Увійти через',
                       style: TextStyle(
