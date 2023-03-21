@@ -29,7 +29,7 @@ class _DetailScreenState extends State<DetailScreen> {
       appBar: AppBar(
         title: Text(
           'Деталі',
-          style: get16W600PrimaryColorText(),
+          style: get18W600PrimaryColorText(),
         ),
         centerTitle: true,
         actions: [
