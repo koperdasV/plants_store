@@ -51,7 +51,6 @@ class AuthScreen extends StatelessWidget {
                     const TextFieldWidget(),
                     const SizedBox(height: 20),
                     ButtonWidget(
-                      size: size,
                       child: const Text('Увійти'),
                       onPressed: () {
                         Navigator.pushReplacement(

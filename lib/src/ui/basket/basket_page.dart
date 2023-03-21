@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
+import 'package:plants_store/src/ui/auth/components/button_widget.dart';
 import 'package:plants_store/src/ui/details/components/amount_controls.dart';
 import 'package:plants_store/src/ui/details/components/counter_widget.dart';
+import 'package:plants_store/src/ui/home/components/button_buy.dart';
 import 'package:plants_store/src/ui/home/components/card_photo.dart';
 import 'package:plants_store/theme/text_styles.dart';
 
@@ -12,20 +14,21 @@ class BasketPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Кошик'),
+        title: Text(
+          'Кошик',
+          style: get18W600PrimaryColorText(),
+        ),
         centerTitle: true,
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        itemCount: 3,
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        itemCount: 10,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 9),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: Stack(
               children: [
                 Container(
-                  //height: 150,
-                  //padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
@@ -40,28 +43,24 @@ class BasketPage extends StatelessWidget {
                   ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(5),
-                        child: SizedBox(
-                          width: 90,
-                          height: 120,
-                          child: Image.asset(
-                            'images/plant_test.png',
-                            fit: BoxFit.contain,
-                          ),
+                      SizedBox(
+                        width: 75,
+                        height: 100,
+                        child: Image.asset(
+                          'images/plant_test.png',
+                          fit: BoxFit.contain,
                         ),
                       ),
                       Expanded(
                         child: SizedBox(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 14),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Row(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 12),
+                                child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
@@ -69,10 +68,18 @@ class BasketPage extends StatelessWidget {
                                       'Туя Мікі',
                                       style: get16W500BlackTextStyle(),
                                     ),
-                                    Text('200'),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.delete_outline_rounded,
+                                      ),
+                                    ),
                                   ],
                                 ),
-                                Row(
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 13),
+                                child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -86,7 +93,7 @@ class BasketPage extends StatelessWidget {
                                         Text(
                                           '1',
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -96,11 +103,22 @@ class BasketPage extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    Text('400'),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          '200₴',
+                                          style: get14W400SilverTextButton(),
+                                        ),
+                                        Text(
+                                          '400₴',
+                                          style: get16W700BlackTextStyle(),
+                                        ),
+                                      ],
+                                    ),
                                   ],
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -111,6 +129,49 @@ class BasketPage extends StatelessWidget {
             ),
           );
         },
+      ),
+      bottomNavigationBar: SafeArea(
+        bottom: false,
+        child: Container(
+          height: 120,
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(112, 112, 112, 0.25),
+                blurRadius: 20,
+                spreadRadius: 10,
+              )
+            ],
+            color: Colors.white,
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Загальна сума:',
+                      style: get18W500BlackTextStyle(),
+                    ),
+                    Text(
+                      '930 ₴',
+                      style: get18W700PrimaryColorText(),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: ButtonWidget(
+                  child: const Text('Оформити замовлення'),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

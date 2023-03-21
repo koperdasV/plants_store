@@ -4,13 +4,11 @@ import 'package:plants_store/resources/colors.dart';
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
     Key? key,
-    required this.size,
     this.child,
     required this.onPressed,
   }) : super(key: key);
 
   final Widget? child;
-  final Size size;
   final Function() onPressed;
 
   @override
@@ -18,7 +16,7 @@ class ButtonWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: SizedBox(
-        width: size.width,
+        width: double.infinity,
         height: 45,
         child: ElevatedButton(
           style: ButtonStyle(
