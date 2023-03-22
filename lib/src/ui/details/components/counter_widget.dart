@@ -12,22 +12,18 @@ class CounterPoductWidget extends StatelessWidget {
   final double? height;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.white),
-          padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
-          shape: MaterialStateProperty.all(
-            const CircleBorder(),
-          ),
-        ),
-        child: Icon(
-          iconData,
-          color: AppColor.unselectedItemColor,
+    return ElevatedButton(
+      onPressed: () {},
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+        shape: MaterialStateProperty.all(
+          const CircleBorder(),
         ),
       ),
+      child: Icon(
+        iconData,
+        color: AppColor.unselectedItemColor,
+      ), 
     );
   }
 }

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:plants_store/base/src/core/models/products/products.dart';
 import 'package:plants_store/resources/colors.dart';
+import 'package:plants_store/theme/text_styles.dart';
 
 class PriceWidget extends StatelessWidget {
   const PriceWidget({
-    Key? key,
+    Key? key, required this.product,
   }) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +22,10 @@ class PriceWidget extends StatelessWidget {
                 bottomLeft: Radius.circular(10))),
         width: 56,
         height: 40,
-        child: const Center(
+        child:  Center(
           child: Text(
-            '200₴',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
+            product.price.toString(),
+            style: get16W700WhiteTextStyle(),
           ),
         ),
       ),
