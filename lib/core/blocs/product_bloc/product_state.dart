@@ -1,28 +1,28 @@
-part of 'product_bloc.dart';
+// part of 'product_bloc.dart';
 
-class ProductState extends Equatable {
-  final List<Product> allProducts;
-  const ProductState({this.allProducts = const <Product>[]});
+// class ProductState extends Equatable {
+//   final List<Product> allProducts;
+//   const ProductState({this.allProducts = const <Product>[]});
 
-  @override
-  List<Object> get props => [allProducts];
-}
+//   @override
+//   List<Object> get props => [allProducts];
+// }
 
-class ProductLoading extends ProductState {}
+// class ProductLoading extends ProductState {}
 
-class ProductLoaded extends ProductState {
-  final List<Product> products;
+// class ProductLoaded extends ProductState {
+//   final List<Product> products;
 
-  const ProductLoaded({this.products = const <Product>[]});
+//   const ProductLoaded({this.products = const <Product>[]});
 
-  @override
-  List<Object> get props => [products];
-}
+//   @override
+//   List<Object> get props => [products];
+// }
 
-class ProductError extends ProductState {
-  final String error;
-  const ProductError(this.error);
+// class ProductError extends ProductState {
+//   final String error;
+//   const ProductError(this.error);
 
-  @override
-  List<Object> get props => [error];
-}
+//   @override
+//   List<Object> get props => [error];
+// }

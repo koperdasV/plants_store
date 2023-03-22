@@ -1,6 +1,6 @@
-import 'package:plants_store/src/models/product_model.dart';
+// import 'package:plants_store/src/models/product_model.dart';
 
-abstract class BaseProductRepository {
+// abstract class BaseProductRepository {
   
-  Stream<List<Product>> getAllProducts();
-}
+//   Stream<List<Product>> getAllProducts();
+// }

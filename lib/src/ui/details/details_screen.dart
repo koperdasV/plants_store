@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plants_store/base/src/core/models/products/products.dart';
 import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/src/ui/basket/basket_page.dart';
 import 'package:plants_store/src/ui/details/components/amount_controls.dart';
@@ -12,11 +13,13 @@ class DetailScreen extends StatefulWidget {
     super.key,
     this.title = 'Опис',
     this.description =
-        'Вічнозелена хвойна туя, приваблива своєю мініатюрною формою. Крона має форму конуса зі злегка скрученими вертикальними валикоподібними пагонами.Зростає повільно і в 10 років виростає до 60 -80 см, а в ширину до 50 см.',
+        '',
+    required this.product,
   });
 
   String title;
   String description;
+  final Product product;
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -58,10 +61,10 @@ class _DetailScreenState extends State<DetailScreen> {
           Container(
             width: double.maxFinite,
             height: 340,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fitWidth,
-                image: AssetImage('images/plant_details_test.png'),
+                fit: BoxFit.cover,
+                image: NetworkImage(widget.product.photoUrl),
               ),
             ),
           ),
@@ -99,10 +102,10 @@ class _DetailScreenState extends State<DetailScreen> {
                       children: [
                         Row(
                           children: [
-                            const Text(
-                              "Туя Мікі",
-                              style: TextStyle(
-                                fontSize: 32,
+                            Text(
+                              widget.product.name,
+                              style: const TextStyle(
+                                fontSize: 22,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -120,7 +123,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           ],
                         ),
                         GradientText(
-                          "200₴",
+                          "${widget.product.price}₴",
                           gradient: AppColor.kPrimaryGradient,
                           style: const TextStyle(
                             fontSize: 24,
@@ -138,8 +141,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           onPressed: () {
                             setState(() {
                               widget.title = 'Опис';
-                              widget.description =
-                                  'Вічнозелена хвойна туя, приваблива своєю мініатюрною формою. Крона має форму конуса зі злегка скрученими вертикальними валикоподібними пагонами.Зростає повільно і в 10 років виростає до 60 -80 см, а в ширину до 50 см.';
+                              widget.description = widget.product.description;
                             });
                           },
                           icon: 'images/description.png',
@@ -148,8 +150,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           onPressed: () {
                             setState(() {
                               widget.title = 'Світло';
-                              widget.description =
-                                  'Туя західна Miky однаково добре переносить висаджування на сонячних ділянках й в легкій півтіні.';
+                              widget.description = widget.product.light;
                             });
                           },
                           icon: 'images/sun.png',
@@ -158,7 +159,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           onPressed: () {
                             setState(() {
                               widget.title = 'Полив';
-                              widget.description = 'Регулярний полив.';
+                              widget.description = widget.product.watering;
                             });
                           },
                           icon: 'images/water.png',
@@ -167,8 +168,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           onPressed: () {
                             setState(() {
                               widget.title = 'Морозостійкість';
-                              widget.description =
-                                  '4 (-34,4°С - -28,9°С)\nВідмінно переносить зими в усіх кліматичних зонах України, але тільки якщо вони сніжні – сніг є для рослини природним укриттям. Якщо прогнозується його мала кількість, рекомендується продумати захисне покриття ялиновим гіллям або за допомогою агротекстилю. Молоді (до 2-3 років) саджанці притіняють в січні-лютому для профілактики сонячних опіків й звільняють крону після сходу снігу. Це потрібно робити в похмурий безвітряний день.';
+                              widget.description = widget.product.frost;
                             });
                           },
                           icon: 'images/snow.png',
@@ -177,8 +177,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           onPressed: () {
                             setState(() {
                               widget.title = 'Грунт';
-                              widget.description =
-                                  'Рослина любить помірно поживні ґрунти. Вона без втрат витримує короткочасні перезволоження та посуху.';
+                              widget.description = widget.product.soil;
                             });
                           },
                           icon: 'images/soil.png',

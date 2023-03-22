@@ -22,10 +22,10 @@ TextStyle get18W500BlackTextStyle() {
   );
 }
 
-TextStyle get16W400GreenStatusStyle() {
+TextStyle get14W400GreenStatusStyle() {
   return const TextStyle(
     color: Color.fromRGBO(49, 125, 69, 0.7),
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.w400,
   );
 }
@@ -35,6 +35,14 @@ TextStyle get14W500WhiteTextButton() {
     fontSize: 14,
     color: Colors.white,
     fontWeight: FontWeight.w500,
+  );
+}
+
+TextStyle get16W700WhiteTextStyle() {
+  return const TextStyle(
+    fontSize: 16,
+    color: Colors.white,
+    fontWeight: FontWeight.w700,
   );
 }
 
