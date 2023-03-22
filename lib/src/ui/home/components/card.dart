@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plants_store/base/src/core/models/products/products.dart';
 import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/src/ui/details/details_screen.dart';
 
@@ -7,7 +8,10 @@ import '../components.dart';
 class CardWidget extends StatelessWidget {
   const CardWidget({
     Key? key,
+    required this.product,
   }) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,9 @@ class CardWidget extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => DetailScreen(),
+          builder: (context) => DetailScreen(
+            product: product,
+          ),
         ),
       ),
       child: Stack(
@@ -36,13 +42,25 @@ class CardWidget extends StatelessWidget {
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                PlantPhoto(),
-                PlantName(),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                PlantPhoto(
+                  product: product,
+                ),
+                PlantName(
+                  product: product,
+                ),
               ],
             ),
           ),
-          const PriceWidget(),
+          const Positioned(
+            right: 0,
+            bottom: 15,
+            child: ButtonBuyWidget(),
+          ),
+          PriceWidget(
+            product: product,
+          ),
         ],
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:plants_store/base/src/blocs/product_bloc/product_bloc.dart';
+import 'package:plants_store/base/src/data/repositories/product/product_repository.dart';
 import 'package:plants_store/core/blocs/auth_bloc/auth_bloc.dart';
 import 'package:plants_store/core/blocs/auth_bloc/auth_state.dart';
 import 'package:plants_store/resources/colors.dart';
@@ -116,7 +118,12 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
             return IndexedStack(
               index: pageIndex.value,
               children: [
-                const HomeScreen(),
+                BlocProvider(
+                  create: (context) => ProductBloc(
+                    productRepository: ProductRepository(),
+                  )..add(LoadProducts()),
+                  child: const HomeScreen(),
+                ),
                 const FavoriteScreen(),
                 BlocBuilder<AuthBloc, AuthState>(
                   builder: (context, state) {
