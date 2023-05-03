@@ -195,7 +195,9 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: const AmountControls(),
+      bottomNavigationBar: AmountControls(
+        product: widget.product,
+      ),
     );
   }
 }

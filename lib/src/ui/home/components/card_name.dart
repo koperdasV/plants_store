@@ -30,7 +30,9 @@ class PlantName extends StatelessWidget {
                 ),
                 const SizedBox(height: 9),
                 Text(
-                  'В наявності',
+                  product.isAvailability == true
+                      ? 'В наявності'
+                      : 'Немає в наявності',
                   style: get14W400GreenStatusStyle(),
                 ),
               ],

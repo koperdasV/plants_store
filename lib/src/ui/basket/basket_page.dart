@@ -166,12 +166,39 @@ class BasketPage extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 10),
                 child: ButtonWidget(
                   child: const Text('Оформити замовлення'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const OrdersDetailWidget(),
+                        ));
+                  },
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class OrdersDetailWidget extends StatelessWidget {
+  const OrdersDetailWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Дані отримувача',
+          style: get18W600PrimaryColorText(),
+        ),
+        centerTitle: true,
+      ),
+      body: Column(
+        children: [],
       ),
     );
   }

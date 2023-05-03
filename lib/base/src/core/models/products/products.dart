@@ -16,6 +16,7 @@ class Product with _$Product {
     required String watering,
     required String frost,
     required String soil,
+    required bool isAvailability,
   }) = _Product;
 
   static Product fromSnapshot(DocumentSnapshot snap) {
@@ -29,6 +30,7 @@ class Product with _$Product {
       watering: snap['watering'],
       frost: snap['frost'],
       soil: snap['soil'],
+      isAvailability: snap['isAvailability']
     );
     return product;
   }

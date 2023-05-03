@@ -7,11 +7,12 @@ class ButtonBuyWidget extends StatelessWidget {
   const ButtonBuyWidget({
     Key? key,
     this.width = 130,
-    this.height = 33,
+    this.height = 33, required this.onPressed,
   }) : super(key: key);
 
   final double? width;
   final double? height;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +22,7 @@ class ButtonBuyWidget extends StatelessWidget {
         width: width,
         height: height,
         child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: ((context) => const FavoriteScreen())));
-          },
+          onPressed: onPressed,
           style: ButtonStyle(
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:plants_store/base/src/core/models/products/products.dart';
 import 'package:plants_store/src/ui/details/components/counter_widget.dart';
 import 'package:plants_store/src/ui/home/components.dart';
 
 class AmountControls extends StatelessWidget {
   const AmountControls({
     Key? key,
+    required this.product,
   }) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +47,9 @@ class AmountControls extends StatelessWidget {
                 ),
               ],
             ),
-            const ButtonBuyWidget(
+            ButtonBuyWidget(
               width: 160,
+              onPressed: product.isAvailability == true ? () {} : null,
             ),
           ],
         ),
