@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/base/src/core/models/products/products.dart';
 import 'package:plants_store/resources/colors.dart';
-import 'package:plants_store/src/ui/home/components/button_buy.dart';
 import 'package:plants_store/theme/text_styles.dart';
 
 class PlantName extends StatelessWidget {
@@ -30,9 +29,7 @@ class PlantName extends StatelessWidget {
                 ),
                 const SizedBox(height: 9),
                 Text(
-                  product.isAvailability == true
-                      ? 'В наявності'
-                      : 'Немає в наявності',
+                  'В наявності',
                   style: get14W400GreenStatusStyle(),
                 ),
               ],

@@ -9,16 +9,15 @@ import 'package:plants_store/theme/text_styles.dart';
 import 'package:plants_store/widgets/gradient_text.dart';
 
 class DetailScreen extends StatefulWidget {
-  DetailScreen({
+  const DetailScreen({
     super.key,
-    this.title = 'Опис',
-    this.description =
-        '',
+    required this.title,
+    required this.description,
     required this.product,
   });
 
-  String title;
-  String description;
+  final String title;
+  final String description;
   final Product product;
 
   @override
@@ -139,46 +138,26 @@ class _DetailScreenState extends State<DetailScreen> {
                       children: [
                         IconWidget(
                           onPressed: () {
-                            setState(() {
-                              widget.title = 'Опис';
-                              widget.description = widget.product.description;
-                            });
                           },
                           icon: 'images/description.png',
                         ),
                         IconWidget(
                           onPressed: () {
-                            setState(() {
-                              widget.title = 'Світло';
-                              widget.description = widget.product.light;
-                            });
                           },
                           icon: 'images/sun.png',
                         ),
                         IconWidget(
                           onPressed: () {
-                            setState(() {
-                              widget.title = 'Полив';
-                              widget.description = widget.product.watering;
-                            });
                           },
                           icon: 'images/water.png',
                         ),
                         IconWidget(
                           onPressed: () {
-                            setState(() {
-                              widget.title = 'Морозостійкість';
-                              widget.description = widget.product.frost;
-                            });
                           },
                           icon: 'images/snow.png',
                         ),
                         IconWidget(
                           onPressed: () {
-                            setState(() {
-                              widget.title = 'Грунт';
-                              widget.description = widget.product.soil;
-                            });
                           },
                           icon: 'images/soil.png',
                         ),
@@ -195,9 +174,7 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: AmountControls(
-        product: widget.product,
-      ),
+      bottomNavigationBar: const AmountControls(),
     );
   }
 }

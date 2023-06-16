@@ -15,77 +15,55 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColorFiltered(
-      colorFilter: product.isAvailability == true
-          ? ColorFilter.mode(Colors.grey.shade100, BlendMode.dst)
-          : AppColor.greyscale,
-      child: GestureDetector(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailScreen(
-              product: product,
-            ),
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DetailScreen(
+            product: product, 
+            description: product.description,
+            title: '',
           ),
         ),
-        child: Stack(
-          children: [
-            Container(
-              height: 148,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                //backgroundBlendMode: BlendMode.saturation,
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColor.shadowColor,
-                    offset: const Offset(0.0, 2.0),
-                    blurRadius: 4.0,
-                    spreadRadius: 1,
-                  ),
-                ],
-                color: Colors.white,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  PlantPhoto(
-                    product: product,
-                  ),
-                  PlantName(
-                    product: product,
-                  ),
-                ],
-              ),
+      ),
+      child: Stack(
+        children: [
+          Container(
+            height: 148,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColor.shadowColor,
+                  offset: const Offset(0.0, 2.0),
+                  blurRadius: 4.0,
+                  spreadRadius: 1,
+                ),
+              ],
+              color: Colors.white,
             ),
-            Positioned(
-              right: 0,
-              bottom: 15,
-              child: ButtonBuyWidget(
-                onPressed: product.isAvailability == true ? () {} : null,
-              ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                PlantPhoto(
+                  product: product,
+                ),
+                PlantName(
+                  product: product,
+                ),
+              ],
             ),
-            PriceWidget(
-              product: product,
-            ),
-            // Container(
-            //   height: 148,
-            //   foregroundDecoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(10),
-            //     backgroundBlendMode: BlendMode.saturation,
-            //     // boxShadow: [
-            //     //   BoxShadow(
-            //     //     color: AppColor.shadowColor,
-            //     //     offset: const Offset(0.0, 2.0),
-            //     //     blurRadius: 4.0,
-            //     //     spreadRadius: 1,
-            //     //   ),
-            //     // ],
-            //     color: Colors.grey.withOpacity(0.25),
-            //   ),
-            // )
-          ],
-        ),
+          ),
+          const Positioned(
+            right: 0,
+            bottom: 15,
+            child: ButtonBuyWidget(),
+          ),
+          PriceWidget(
+            product: product,
+          ),
+        ],
       ),
     );
   }

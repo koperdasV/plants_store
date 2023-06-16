@@ -3,13 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plants_store/core/blocs/auth_bloc/auth_bloc.dart';
 import 'package:plants_store/core/blocs/auth_bloc/auth_event.dart';
 import 'package:plants_store/core/blocs/auth_bloc/auth_state.dart';
-import 'package:plants_store/src/ui/auth/sign_up_screen.dart';
 import 'package:plants_store/src/ui/main/main_screen_widget.dart';
 
 import '../../../widgets/rounded_btn_widget.dart';
 import 'components/button_widget.dart';
 import 'components/logo_widget.dart';
-import 'components/text_button_widget.dart';
 import 'components/text_field_widget.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -17,7 +15,6 @@ class AuthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {

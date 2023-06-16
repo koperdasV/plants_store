@@ -11,27 +11,4 @@ abstract class AppColor {
       Color(0xff2F9E4D),
     ],
   );
-
-  static ColorFilter greyscale = const ColorFilter.matrix([
-    0.2126,
-    0.7152,
-    0.0722,
-    0,
-    0,
-    0.2126,
-    0.7152,
-    0.0722,
-    0,
-    0,
-    0.2126,
-    0.7152,
-    0.0722,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-  ]);
 }

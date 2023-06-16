@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plants_store/resources/colors.dart';
 import 'package:plants_store/src/ui/auth/components/button_widget.dart';
-import 'package:plants_store/src/ui/details/components/amount_controls.dart';
 import 'package:plants_store/src/ui/details/components/counter_widget.dart';
-import 'package:plants_store/src/ui/home/components/button_buy.dart';
-import 'package:plants_store/src/ui/home/components/card_photo.dart';
 import 'package:plants_store/theme/text_styles.dart';
 
 class BasketPage extends StatelessWidget {
@@ -84,8 +81,8 @@ class BasketPage extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    Row(
-                                      children: const [
+                                    const Row(
+                                      children: [
                                         CounterPoductWidget(
                                           height: 23,
                                           iconData: Icons.remove,
@@ -166,39 +163,12 @@ class BasketPage extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 10),
                 child: ButtonWidget(
                   child: const Text('Оформити замовлення'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const OrdersDetailWidget(),
-                        ));
-                  },
+                  onPressed: () {},
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class OrdersDetailWidget extends StatelessWidget {
-  const OrdersDetailWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Дані отримувача',
-          style: get18W600PrimaryColorText(),
-        ),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [],
       ),
     );
   }

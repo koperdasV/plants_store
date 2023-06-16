@@ -25,7 +25,6 @@ mixin _$Product {
   String get watering => throw _privateConstructorUsedError;
   String get frost => throw _privateConstructorUsedError;
   String get soil => throw _privateConstructorUsedError;
-  bool get isAvailability => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -45,8 +44,7 @@ abstract class $ProductCopyWith<$Res> {
       String light,
       String watering,
       String frost,
-      String soil,
-      bool isAvailability});
+      String soil});
 }
 
 /// @nodoc
@@ -71,7 +69,6 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? watering = null,
     Object? frost = null,
     Object? soil = null,
-    Object? isAvailability = null,
   }) {
     return _then(_value.copyWith(
       productId: null == productId
@@ -110,10 +107,6 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.soil
           : soil // ignore: cast_nullable_to_non_nullable
               as String,
-      isAvailability: null == isAvailability
-          ? _value.isAvailability
-          : isAvailability // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -134,8 +127,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String light,
       String watering,
       String frost,
-      String soil,
-      bool isAvailability});
+      String soil});
 }
 
 /// @nodoc
@@ -157,7 +149,6 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? watering = null,
     Object? frost = null,
     Object? soil = null,
-    Object? isAvailability = null,
   }) {
     return _then(_$_Product(
       productId: null == productId
@@ -196,10 +187,6 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.soil
           : soil // ignore: cast_nullable_to_non_nullable
               as String,
-      isAvailability: null == isAvailability
-          ? _value.isAvailability
-          : isAvailability // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -216,8 +203,7 @@ class _$_Product extends _Product {
       required this.light,
       required this.watering,
       required this.frost,
-      required this.soil,
-      required this.isAvailability})
+      required this.soil})
       : super._();
 
   @override
@@ -238,12 +224,10 @@ class _$_Product extends _Product {
   final String frost;
   @override
   final String soil;
-  @override
-  final bool isAvailability;
 
   @override
   String toString() {
-    return 'Product(productId: $productId, photoUrl: $photoUrl, price: $price, name: $name, description: $description, light: $light, watering: $watering, frost: $frost, soil: $soil, isAvailability: $isAvailability)';
+    return 'Product(productId: $productId, photoUrl: $photoUrl, price: $price, name: $name, description: $description, light: $light, watering: $watering, frost: $frost, soil: $soil)';
   }
 
   @override
@@ -263,14 +247,12 @@ class _$_Product extends _Product {
             (identical(other.watering, watering) ||
                 other.watering == watering) &&
             (identical(other.frost, frost) || other.frost == frost) &&
-            (identical(other.soil, soil) || other.soil == soil) &&
-            (identical(other.isAvailability, isAvailability) ||
-                other.isAvailability == isAvailability));
+            (identical(other.soil, soil) || other.soil == soil));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, productId, photoUrl, price, name,
-      description, light, watering, frost, soil, isAvailability);
+      description, light, watering, frost, soil);
 
   @JsonKey(ignore: true)
   @override
@@ -289,8 +271,7 @@ abstract class _Product extends Product {
       required final String light,
       required final String watering,
       required final String frost,
-      required final String soil,
-      required final bool isAvailability}) = _$_Product;
+      required final String soil}) = _$_Product;
   const _Product._() : super._();
 
   @override
@@ -311,8 +292,6 @@ abstract class _Product extends Product {
   String get frost;
   @override
   String get soil;
-  @override
-  bool get isAvailability;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

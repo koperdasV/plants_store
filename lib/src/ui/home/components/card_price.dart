@@ -5,8 +5,7 @@ import 'package:plants_store/theme/text_styles.dart';
 
 class PriceWidget extends StatelessWidget {
   const PriceWidget({
-    Key? key,
-    required this.product,
+    Key? key, required this.product,
   }) : super(key: key);
 
   final Product product;
@@ -17,15 +16,13 @@ class PriceWidget extends StatelessWidget {
       bottom: 0,
       child: Container(
         decoration: BoxDecoration(
-          gradient: AppColor.kPrimaryGradient,
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(10),
-            bottomLeft: Radius.circular(10),
-          ),
-        ),
+            gradient: AppColor.kPrimaryGradient,
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(10),
+                bottomLeft: Radius.circular(10))),
         width: 56,
         height: 40,
-        child: Center(
+        child:  Center(
           child: Text(
             product.price.toString(),
             style: get16W700WhiteTextStyle(),

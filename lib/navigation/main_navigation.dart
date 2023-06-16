@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:plants_store/src/ui/auth/auth_screen.dart';
 import 'package:plants_store/src/ui/profile/profile_screen.dart';
 import 'package:plants_store/src/ui/main/main_screen_widget.dart';
-import '../src/ui/details/details_screen.dart';
 import '../src/ui/favorite/favorite_screen.dart';
 
 abstract class MainNavigationRouteName {
